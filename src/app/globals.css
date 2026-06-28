@@ -1,0 +1,411 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sora);
+  --font-display: var(--font-montserrat);
+  --font-heading: var(--font-montserrat);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sora), Arial, sans-serif;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+}
+
+::selection {
+  background: #00ffaa;
+  color: #000819;
+}
+
+.font-display {
+  font-family: var(--font-montserrat), Arial, sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-sora), Arial, sans-serif;
+}
+
+.agency-texture {
+  background-image:
+    radial-gradient(circle at 18% 20%, rgb(255 255 255 / 0.42) 0 10%, transparent 11%),
+    linear-gradient(135deg, rgb(255 255 255 / 0.22) 0 25%, transparent 25% 50%, rgb(0 0 0 / 0.16) 50% 75%, transparent 75%),
+    linear-gradient(90deg, transparent 0 48%, rgb(255 255 255 / 0.28) 48% 52%, transparent 52%);
+  background-size: 160px 160px, 42px 42px, 100% 100%;
+}
+
+.marquee,
+.client-row {
+  width: 100%;
+}
+
+.marquee-track,
+.client-row-track {
+  display: flex;
+  width: max-content;
+  gap: 0.75rem;
+  animation: marquee 34s linear infinite;
+  will-change: transform;
+}
+
+.client-row-track {
+  animation-duration: 44s;
+}
+
+.client-row-track.reverse {
+  animation-name: marquee-reverse;
+  animation-duration: 52s;
+}
+
+.client-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(246 241 234 / 0.4);
+  border-radius: 999px;
+  padding: 0.85rem 1.2rem;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.outline-marquee {
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke: 1.4px #111;
+  color: white;
+  font-family: var(--font-montserrat), Arial, sans-serif;
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.interactive-media {
+  --mx: 50%;
+  --my: 50%;
+}
+
+.interactive-media-color,
+.interactive-media-grid,
+.interactive-media-glow {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+.interactive-media-color {
+  background:
+    radial-gradient(circle at 20% 22%, rgb(255 79 0 / 0.72), transparent 23%),
+    radial-gradient(circle at 60% 62%, rgb(0 114 255 / 0.62), transparent 24%),
+    radial-gradient(circle at 83% 48%, rgb(255 56 205 / 0.74), transparent 25%),
+    linear-gradient(180deg, rgb(0 0 0 / 0.04), rgb(0 0 0 / 0.52));
+  filter: blur(18px) saturate(1.28);
+  mix-blend-mode: screen;
+  opacity: 0.95;
+  animation: media-color-drift 8s ease-in-out infinite alternate;
+}
+
+.interactive-media-grid {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.72) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.72) 1px, transparent 1px);
+  background-size: calc(100% / 8) calc(100% / 6);
+  opacity: 0.72;
+}
+
+.interactive-media-glow {
+  background:
+    radial-gradient(circle at var(--mx) var(--my), rgb(255 255 255 / 0.28), transparent 16%),
+    radial-gradient(circle at var(--mx) var(--my), rgb(255 64 214 / 0.34), transparent 28%);
+  mix-blend-mode: screen;
+  opacity: 0.72;
+  transition: opacity 160ms ease;
+}
+
+.interactive-media:hover .interactive-media-glow {
+  opacity: 1;
+}
+
+.client-grid-cell {
+  position: relative;
+}
+
+.client-grid-cell.is-active {
+  z-index: 1;
+  box-shadow: inset 0 0 0 3px #000;
+}
+
+.client-grid-cell.is-active::after {
+  position: absolute;
+  inset: -1px;
+  border: 3px solid #000;
+  content: "";
+  pointer-events: none;
+}
+
+.logo-tile {
+  display: inline-flex;
+  min-width: 210px;
+  min-height: 84px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #111318;
+  border-radius: 1.1rem;
+  background: white;
+  padding: 0.75rem 1rem;
+  box-shadow: 5px 5px 0 #111318;
+  color: #111318;
+  font-size: 0.92rem;
+  font-weight: 950;
+  line-height: 1.05;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.client-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(210px, 0.36fr);
+  min-height: 620px;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+.client-frame {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    radial-gradient(circle at 18% 18%, rgb(255 73 1 / 0.34), transparent 28%),
+    radial-gradient(circle at 84% 22%, rgb(4 105 227 / 0.38), transparent 30%),
+    #050505;
+  padding: clamp(1.5rem, 4vw, 4.5rem);
+  color: #fff;
+}
+
+.client-feature-name {
+  overflow-wrap: anywhere;
+  font-family: var(--font-montserrat), Arial, sans-serif;
+  font-size: clamp(4rem, 10vw, 10.5rem);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  line-height: 0.82;
+  text-transform: uppercase;
+}
+
+.client-name-rail {
+  max-height: 620px;
+  overflow-y: auto;
+  border-left: 1px solid #000;
+}
+
+.client-name-button {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid rgb(0 0 0 / 0.14);
+  padding: 1rem;
+  background: #fff;
+  color: #111;
+  font-family: var(--font-montserrat), Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 850;
+  line-height: 1.1;
+  text-align: left;
+  text-transform: uppercase;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.client-name-button:hover,
+.client-name-button:focus,
+.client-name-button.active {
+  background: #000;
+  color: #fff;
+}
+
+.outline-word {
+  -webkit-text-stroke: 1.2px #dddfe5;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes media-color-drift {
+  from {
+    transform: scale(1.03) translate3d(-1.5%, -1%, 0);
+  }
+
+  to {
+    transform: scale(1.07) translate3d(1.5%, 1%, 0);
+  }
+}
+
+@media (max-width: 767px) {
+  .client-row-track {
+    animation-duration: 36s;
+  }
+
+  .logo-tile {
+    min-width: 172px;
+    min-height: 76px;
+    font-size: 0.78rem;
+  }
+
+  .client-showcase {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .client-frame {
+    min-height: 380px;
+  }
+
+  .client-name-rail {
+    display: grid;
+    max-height: 300px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-left: 0;
+    border-top: 1px solid #000;
+  }
+}
