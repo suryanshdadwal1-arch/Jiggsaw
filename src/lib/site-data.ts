@@ -7,12 +7,44 @@ export const navItems = [
   { label: "Contact", href: "/contact" },
 ];
 
-export const clientLogos = Array.from({ length: 36 }, (_, index) => index + 1)
-  .filter((logoNumber) => logoNumber !== 29)
-  .map((logoNumber) => ({
-    src: `/client-logos/client-${String(logoNumber).padStart(2, "0")}.webp`,
-    alt: `Client logo ${logoNumber}`,
-  }));
+export const clientLogos = [
+  { name: "BookMyShow", file: "client-01.webp" },
+  { name: "boAt", file: "client-02.webp" },
+  { name: "Forest Hill Golf & Country Club", file: "client-03.webp" },
+  { name: "Homeland", file: "client-04.webp" },
+  { name: "PVR Cinemas", file: "client-05.webp" },
+  { name: "MY FM", file: "client-06.webp" },
+  { name: "24 Seven", file: "client-07.webp" },
+  { name: "Red FM", file: "client-08.webp" },
+  { name: "Times Music", file: "client-09.webp" },
+  { name: "T-Series", file: "client-10.webp" },
+  { name: "ZEE LIVE", file: "client-11.webp" },
+  { name: "realme", file: "client-12.webp" },
+  { name: "Omaxe", file: "client-13.webp" },
+  { name: "Government of Punjab", file: "client-14.webp" },
+  { name: "Coca-Cola", file: "client-15.webp" },
+  { name: "Levi's", file: "client-16.webp" },
+  { name: "HDFC Bank", file: "client-17.webp" },
+  { name: "Spotify", file: "client-18.webp" },
+  { name: "Kingfisher", file: "client-19.webp" },
+  { name: "EVA Live", file: "client-20.webp" },
+  { name: "Holiday Inn", file: "client-22.webp" },
+  { name: "Johnnie Walker", file: "client-23.webp" },
+  { name: "Royal Enfield", file: "client-24.webp" },
+  { name: "Indian American Pride Soda", file: "client-25.webp" },
+  { name: "Paytm Insider", file: "client-26.webp" },
+  { name: "Jack & Jones", file: "client-27.webp" },
+  { name: "Sheraton Hotels & Resorts", file: "client-28.webp" },
+  { name: "Tata Neu", file: "client-30.webp" },
+  { name: "SBI", file: "client-31.webp" },
+  { name: "Hyundai", file: "client-32.webp" },
+  { name: "Paytm", file: "client-33.webp" },
+  { name: "Sunburn", file: "client-34.webp" },
+].map((logo) => ({
+  name: logo.name,
+  src: `/client-logos/${logo.file}`,
+  alt: `${logo.name} logo`,
+}));
 
 export const serviceModules = [
   {

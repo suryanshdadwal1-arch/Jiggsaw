@@ -175,6 +175,8 @@
   width: max-content;
   gap: 0.75rem;
   animation: marquee 34s linear infinite;
+  animation-play-state: running;
+  transform: translate3d(0, 0, 0);
   will-change: transform;
 }
 
@@ -244,8 +246,11 @@
 .logo-marquee-track {
   display: flex;
   width: max-content;
+  min-width: max-content;
   gap: 1rem;
   animation: logo-marquee 42s linear infinite;
+  animation-play-state: running;
+  transform: translate3d(0, 0, 0);
   will-change: transform;
 }
 
@@ -256,6 +261,7 @@
 
 .logo-tile {
   display: inline-flex;
+  flex: 0 0 auto;
   height: 96px;
   width: 210px;
   align-items: center;
@@ -385,31 +391,31 @@
 
 @keyframes logo-marquee {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 @keyframes logo-marquee-reverse {
   from {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 
   to {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes marquee {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
