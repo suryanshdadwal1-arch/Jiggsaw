@@ -16,9 +16,9 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Jiggsaw | Creative, Media, Tech & Culture Studio",
+  title: "Jiggsaw | B2B Digital Credibility & Market Visibility",
   description:
-    "Jiggsaw is an integrated creative partner for brand systems, social, media, digital products, production, and experiences.",
+    "Jiggsaw builds connected website, SEO, EEO, content, campaign and market activation systems for serious B2B brands.",
 };
 
 export default function RootLayout({
