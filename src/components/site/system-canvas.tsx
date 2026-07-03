@@ -30,7 +30,7 @@ function MovingSystem() {
       {points.map((point, index) => (
         <Float key={index} speed={1.25 + index * 0.12} rotationIntensity={0.5} floatIntensity={0.55}>
           <Sphere position={point} args={[index === 2 ? 0.34 : 0.24, 32, 32]}>
-            <meshStandardMaterial color={index % 2 ? "#ff6b00" : "#0b72f0"} roughness={0.38} metalness={0.15} />
+            <meshStandardMaterial color={index % 2 ? "#ff4901" : "#0469e3"} roughness={0.38} metalness={0.15} />
           </Sphere>
         </Float>
       ))}

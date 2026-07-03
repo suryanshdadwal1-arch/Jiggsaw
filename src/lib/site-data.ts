@@ -53,50 +53,50 @@ export const serviceModules = [
     eyebrow: "Foundation",
     title: "Message Architecture",
     short:
-      "Approved facts, buyer questions, proof points and positioning that keep every page and campaign aligned.",
+      "Positioning, proof points and launch language that keep every channel telling the same story.",
     intro:
-      "A practical strategy layer for B2B brands that need sharper credibility before they scale content, media or market activity.",
+      "The strategy layer that decides what the brand says, shows and promises before money goes into media, content or events.",
     deliverables: [
-      "Approved fact base and claim-control sheet",
-      "Audience and buyer journey map",
-      "Core messaging pillars",
-      "Proof bank for website, search, social and sales teams",
+      "Positioning and messaging pillars",
+      "Approved claims and proof bank",
+      "Audience and journey map",
+      "Launch and campaign language",
     ],
-    outcomes: ["Clearer story", "Safer claims", "Faster content decisions"],
+    outcomes: ["Sharper story", "Faster decisions", "Consistent channels"],
   },
   {
     slug: "website-buyer-journey",
     number: "02",
     eyebrow: "Website",
-    title: "Buyer Journey Setup",
+    title: "Website & Conversion Journeys",
     short:
-      "Home, category, proof and enquiry paths designed so industrial buyers can understand, trust and act.",
+      "Websites and landing journeys built so interest from any channel has somewhere to convert.",
     intro:
-      "We turn the website into a conversion path, not a brochure. Pages are planned around search intent, proof, forms and next steps.",
+      "We treat the website as the meeting point of every campaign: pages, proof and enquiry paths designed around how people actually decide.",
     deliverables: [
-      "Homepage and service/category templates",
+      "Homepage and service page structure",
       "Proof-led page sections",
-      "CTA and form routing",
-      "Analytics-ready enquiry journey",
+      "CTA and enquiry routing",
+      "Analytics-ready journeys",
     ],
-    outcomes: ["Better navigation", "Higher enquiry intent", "Reduced content clutter"],
+    outcomes: ["Clearer navigation", "Higher enquiry intent", "Less content clutter"],
   },
   {
     slug: "eeo-ai-discovery",
     number: "03",
     eyebrow: "Discovery",
-    title: "EEO & AI Search Readiness",
+    title: "AI & Answer-Engine Readiness",
     short:
-      "Answer-ready content blocks and structured proof that help the brand show up in search and AI-led discovery.",
+      "Structured content and proof that keep the brand visible in search and AI-led discovery.",
     intro:
-      "Entity Engine Optimization helps crawlers, answer engines and buyers understand the business, products, approvals and proof.",
+      "Answer engines now shape first impressions. We organize facts, FAQs and proof so machines and people both get the story right.",
     deliverables: [
       "Entity and FAQ structure",
-      "Crawler-readable proof blocks",
+      "Machine-readable proof blocks",
       "Schema recommendations",
-      "AI-search answer mapping",
+      "Answer mapping for AI search",
     ],
-    outcomes: ["Stronger discoverability", "Machine-readable proof", "Cleaner answers"],
+    outcomes: ["Stronger discoverability", "Cleaner answers", "Future-ready visibility"],
   },
   {
     slug: "seo-growth",
@@ -104,16 +104,16 @@ export const serviceModules = [
     eyebrow: "Search",
     title: "SEO Growth System",
     short:
-      "Technical SEO, keyword mapping, product-led templates and regional pages for long-term qualified visibility.",
+      "Technical SEO, keyword mapping and page systems that compound qualified visibility month after month.",
     intro:
-      "A search operating system built for manufacturing and B2B categories where buyers compare capability, approvals and reach.",
+      "A search system built around how your customers compare, shortlist and choose — not just what they type.",
     deliverables: [
-      "Technical and on-page SEO audit",
+      "Technical and on-page audit",
       "Keyword and page map",
-      "Product and regional page structure",
+      "Location and category page structure",
       "GA4, GSC and reporting setup",
     ],
-    outcomes: ["Better rankings", "More qualified visits", "Ongoing visibility"],
+    outcomes: ["Better rankings", "Qualified visits", "Compounding visibility"],
   },
   {
     slug: "content-social-system",
@@ -121,16 +121,16 @@ export const serviceModules = [
     eyebrow: "Content",
     title: "Content & Social System",
     short:
-      "LinkedIn, Instagram and Facebook content planned around proof, product clarity, dealer stories and market moments.",
+      "Instagram, LinkedIn and YouTube systems planned around culture, proof and business intent.",
     intro:
-      "A focused content engine that makes the brand visible without diluting technical credibility or business intent.",
+      "A content engine with a point of view: formats, calendars and stories that build recall without chasing every trend.",
     deliverables: [
       "Monthly content calendar",
-      "LinkedIn B2B visibility plan",
-      "Instagram and Facebook post system",
+      "Platform-specific format system",
+      "Creator and collaboration briefs",
       "Copy, creative and publishing support",
     ],
-    outcomes: ["Consistent presence", "Clearer proof", "Better recall"],
+    outcomes: ["Consistent presence", "Stronger recall", "Content with intent"],
   },
   {
     slug: "creative-production",
@@ -138,16 +138,16 @@ export const serviceModules = [
     eyebrow: "Production",
     title: "Creative Production",
     short:
-      "Shot lists, reels, explainers, interviews and visual assets that make plant, product and people proof more usable.",
+      "Shoots, reels, films and campaign assets produced with entertainment-grade craft.",
     intro:
-      "We plan production around what the website, sales team, search pages and campaigns actually need to communicate.",
+      "Production planned backwards from where the work will live: feeds, screens, stages and venues.",
     deliverables: [
-      "Shoot plan and asset requirements",
-      "Reel and explainer concepts",
-      "Interview and plant proof formats",
-      "Organized asset folders",
+      "Shoot and asset planning",
+      "Reels, films and explainers",
+      "Event and venue coverage",
+      "Organized asset libraries",
     ],
-    outcomes: ["Reusable assets", "Stronger proof packaging", "Less content waste"],
+    outcomes: ["Reusable assets", "Sharper craft", "Less content waste"],
   },
   {
     slug: "paid-media-campaigns",
@@ -155,16 +155,16 @@ export const serviceModules = [
     eyebrow: "Media",
     title: "Paid Media & Campaigns",
     short:
-      "Launch, retargeting and lead-generation campaigns connected to landing pages, forms and follow-up.",
+      "Launch, awareness and lead campaigns connected to landing pages, retargeting and follow-up.",
     intro:
-      "Campaigns are planned as movement systems: attention, proof, remarketing and enquiry handoff working together.",
+      "Media planned as momentum: attention, proof, remarketing and enquiry handoff working as one loop.",
     deliverables: [
-      "Campaign route planning",
-      "Paid media setup support",
+      "Campaign and channel planning",
+      "Paid media setup",
       "Retargeting and landing page alignment",
       "Creative testing structure",
     ],
-    outcomes: ["Sharper targeting", "Cleaner handoff", "Measurable enquiries"],
+    outcomes: ["Sharper targeting", "Cleaner handoff", "Measurable movement"],
   },
   {
     slug: "analytics-reporting",
@@ -172,12 +172,12 @@ export const serviceModules = [
     eyebrow: "Measurement",
     title: "Analytics & Reporting",
     short:
-      "GA4, GSC, event tracking and monthly reporting so decisions are tied to movement, not assumptions.",
+      "Tracking and monthly reporting that tie campaigns, content and events to actual movement.",
     intro:
-      "The system is tracked from discovery to enquiry, helping teams see what content, pages and campaigns are working.",
+      "From first click to final footfall, the system is measured so decisions are based on evidence, not opinion.",
     deliverables: [
       "Tracking plan",
-      "GA4 and Search Console checks",
+      "GA4 and Search Console setup",
       "Monthly performance report",
       "Improvement recommendations",
     ],
@@ -187,65 +187,65 @@ export const serviceModules = [
     slug: "market-activation",
     number: "09",
     eyebrow: "Physical",
-    title: "Market Activation",
+    title: "Experiences & Activation",
     short:
-      "Dealer meets, plant visits, launch moments and physical visibility connected back to digital proof and follow-up.",
+      "Launches, events, venue moments and on-ground activations connected back to digital growth.",
     intro:
-      "Offline attention should not disappear after the event. We turn market activity into content, proof and enquiry paths.",
+      "Built on entertainment and activation lineage: moments people attend, remember and post — with a digital system that keeps the momentum.",
     deliverables: [
-      "Activation route planning",
-      "Event-to-content plan",
-      "Dealer and regional support assets",
+      "Activation and event concepts",
+      "Venue and launch planning",
+      "Event-to-content pipelines",
       "Post-event digital follow-up",
     ],
-    outcomes: ["More useful events", "Digital continuity", "Stronger market proof"],
+    outcomes: ["Memorable moments", "Digital continuity", "Momentum after the event"],
   },
 ];
 
 export const workSystems = [
   {
-    title: "Manufacturing Credibility System",
-    label: "Website + SEO + Proof",
+    title: "Launch Momentum System",
+    label: "Strategy + Media + Activation",
     copy:
-      "A structured digital base for industrial brands that need approvals, capability and product clarity visible before enquiry.",
+      "A coordinated path for openings, drops and debuts: positioning, teaser content, paid media and a launch moment people actually show up for.",
   },
   {
-    title: "Dealer Visibility Engine",
-    label: "Activation + Content",
+    title: "Venue & Footfall Engine",
+    label: "Local + Social + Events",
     copy:
-      "A route for dealer networks and regional markets where offline movement becomes digital proof and follow-up.",
+      "A rhythm for venues and lifestyle spaces where social presence, local search and on-ground programming keep footfall building.",
   },
   {
-    title: "Green Steel Proof Hub",
-    label: "Content + EEO",
+    title: "Creator & Content Loop",
+    label: "Creators + Production",
     copy:
-      "A proof-led content architecture for sustainability, plant capability, compliance and buyer education.",
+      "A repeatable loop of creator collaborations, original formats and production that keeps the brand in culture without losing its voice.",
   },
   {
     title: "Search & AI Discovery Roadmap",
-    label: "SEO + EEO",
+    label: "SEO + AI Readiness",
     copy:
-      "A discoverability system that organizes facts, FAQs, product pages and schema around how buyers search.",
+      "A discoverability system that organizes facts, pages and proof around how people — and answer engines — actually search.",
   },
   {
     title: "Launch-to-Enquiry Campaign",
     label: "Media + Funnel",
     copy:
-      "A campaign path that moves attention from paid media and social into landing pages, retargeting and lead capture.",
+      "A campaign path that moves attention from paid media and social into landing pages, retargeting and captured demand.",
   },
   {
-    title: "Always-On Social Operating System",
-    label: "Social + Creative",
+    title: "Event-to-Everywhere System",
+    label: "Activation + Content",
     copy:
-      "A monthly content rhythm for LinkedIn, Instagram and Facebook, built around proof, products and market moments.",
+      "One event, a month of presence: coverage, cutdowns, recaps and retargeting that stretch every on-ground moment.",
   },
 ];
 
 export const resourceCards = [
-  "How to turn manufacturing proof into website content",
-  "What EEO means for B2B brands and AI-led discovery",
+  "How one launch can feed a month of content",
+  "What AI-led discovery means for brand visibility",
   "A practical checklist before running paid media",
-  "How dealer events can become long-term digital assets",
-  "What every product page should answer before enquiry",
-  "How to plan social content without losing business focus",
+  "How events become long-term digital assets",
+  "What every landing page should answer before enquiry",
+  "How to plan social content without chasing every trend",
 ];

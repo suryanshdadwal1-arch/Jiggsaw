@@ -4,7 +4,7 @@ import { navItems } from "@/lib/site-data";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-black/10 bg-[#f5f2ec] px-4 py-10 sm:px-6 lg:px-10">
+    <footer className="border-t border-black/10 bg-brand-paper px-4 py-10 sm:px-6 lg:px-10">
       <div className="mx-auto flex max-w-[1520px] flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <Image src="/jiggsaw-logo-2026.png" alt="Jiggsaw" width={900} height={260} className="h-auto w-36 object-contain" />
@@ -19,7 +19,7 @@ export function SiteFooter() {
             </Link>
           ))}
         </nav>
-        <p className="text-sm font-semibold text-black/45">Copyright 2026 Jiggsaw. All rights reserved.</p>
+        <p className="text-sm font-semibold text-black/45">Copyright {new Date().getFullYear()} Jiggsaw. All rights reserved.</p>
       </div>
     </footer>
   );

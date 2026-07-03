@@ -1,4 +1,5 @@
 export function PageHero({
+  eyebrow,
   title,
   copy,
 }: {
@@ -7,10 +8,13 @@ export function PageHero({
   copy?: string;
 }) {
   return (
-    <section className="border-b border-black/10 bg-white px-4 py-14 sm:px-6 sm:py-18 lg:px-10">
+    <section className="border-b border-black/10 bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-10">
       <div className="mx-auto max-w-[1520px]">
-        <h1 className="max-w-[1480px] text-[clamp(3rem,4.8vw,5.6rem)] font-black uppercase leading-[0.98] text-black">{title}</h1>
-        {copy ? <p className="mt-7 max-w-3xl text-lg font-semibold leading-8 text-black/62">{copy}</p> : null}
+        {eyebrow ? (
+          <p data-reveal className="mb-4 font-display text-sm font-black uppercase tracking-[0.26em] text-brand-orange">{eyebrow}</p>
+        ) : null}
+        <h1 data-reveal data-reveal-delay="0.08" className="max-w-[900px] [overflow-wrap:anywhere] font-display text-[clamp(2.1rem,3.6vw,4rem)] font-black leading-[1.04] tracking-[-0.03em] text-black">{title}</h1>
+        {copy ? <p data-reveal data-reveal-delay="0.18" className="mt-5 max-w-3xl text-lg font-medium leading-8 text-black/65">{copy}</p> : null}
       </div>
     </section>
   );
