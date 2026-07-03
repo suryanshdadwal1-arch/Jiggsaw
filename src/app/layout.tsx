@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Sora } from "next/font/google";
+import { CustomCursor } from "@/components/site/custom-cursor";
+import { JiggsawPreloader } from "@/components/site/jiggsaw-preloader";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
@@ -32,7 +34,11 @@ export default function RootLayout({
       className={`${montserrat.variable} ${sora.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <TooltipProvider>{children}</TooltipProvider>
+        <TooltipProvider>
+          <JiggsawPreloader />
+          <CustomCursor />
+          {children}
+        </TooltipProvider>
       </body>
     </html>
   );

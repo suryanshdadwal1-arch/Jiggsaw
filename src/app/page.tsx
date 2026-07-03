@@ -1,62 +1,91 @@
 "use client";
 
+import type { CSSProperties } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   BadgeCheck,
   Code2,
   MapPin,
   Megaphone,
+  PenTool,
+  Search,
+  Share2,
   Sparkles,
+  Users,
+  Video,
 } from "lucide-react";
 import { GsapReveals } from "@/components/site/gsap-reveals";
 import { LogoMarquee } from "@/components/site/logo-marquee";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
+import { caseStudies } from "@/lib/case-studies";
 
 const pillarLabels = ["Digital", "Physical", "Creative", "Media", "Growth"];
 
-const services = [
+const solutionCards = [
   {
+    number: "01",
     icon: Sparkles,
     title: "Brand Systems",
-    copy: "Positioning, campaign worlds, launch language, identity direction, and the strategy that keeps every touchpoint aligned.",
+    copy: "Positioning, campaign worlds, launch language and identity direction that keep every touchpoint aligned.",
   },
   {
+    number: "02",
     icon: Code2,
-    title: "Digital Growth",
-    copy: "Websites, funnels, social systems, commerce journeys, CRM flows, and performance paths built to turn attention into action.",
+    title: "Website Experience",
+    copy: "Websites, landing pages and digital journeys built to make credibility easier to understand and act on.",
   },
   {
+    number: "03",
+    icon: Search,
+    title: "SEO + EEO Discovery",
+    copy: "Search, AI discovery, FAQs, schema and content structures built around how buyers actually research.",
+  },
+  {
+    number: "04",
+    icon: Share2,
+    title: "SMM + SMO",
+    copy: "Social platforms planned around consistency, proof, profile clarity and audience engagement.",
+  },
+  {
+    number: "05",
+    icon: PenTool,
+    title: "Content Creation",
+    copy: "Reels, photos, graphics, copy and campaign assets that make the brand look active and trusted.",
+  },
+  {
+    number: "06",
+    icon: Video,
+    title: "Creative Production",
+    copy: "Shoots, brand films, product visuals, interviews and edits shaped with clear campaign direction.",
+  },
+  {
+    number: "07",
     icon: Megaphone,
-    title: "Media Engine",
-    copy: "Paid media, creator programs, channel planning, content calendars, and campaign learning loops that improve every month.",
+    title: "Media + Funnels",
+    copy: "Paid media, retargeting, landing pages, WhatsApp flows and enquiry paths built for follow-up.",
   },
   {
+    number: "08",
+    icon: Users,
+    title: "Influencer + Celebrity",
+    copy: "Creator partnerships, influencer campaigns and ambassador onboarding planned around campaign fit.",
+  },
+  {
+    number: "09",
     icon: MapPin,
-    title: "Activation Strategy",
-    copy: "On-ground ideas, event extensions, launch moments, brand activations, and physical experiences connected back to measurable growth.",
+    title: "Events + Activation",
+    copy: "Dealer meets, builder meets, launches and physical brand moments connected back to digital visibility.",
   },
 ];
 
-const cultureCards = [
-  {
-    title: "Digital systems that know what happens offline",
-    label: "Screens + Streets",
-    tone: "bg-brand-magenta",
-  },
-  {
-    title: "Campaigns built for attention, footfall, and follow-through",
-    label: "Media + Activation",
-    tone: "bg-brand-orange",
-  },
-  {
-    title: "Entertainment lineage shaped into brand growth",
-    label: "Scope Network",
-    tone: "bg-brand-blue",
-  },
-];
+type SolutionSlot = {
+  current: number;
+  previous?: number;
+};
 
 const stats = [
   ["500+", "experiences through Scope"],
@@ -66,6 +95,16 @@ const stats = [
 
 export default function Home() {
   const [activePillar, setActivePillar] = useState(2);
+  const [solutionSlots, setSolutionSlots] = useState<SolutionSlot[]>([
+    { current: 0 },
+    { current: 1 },
+    { current: 2 },
+    { current: 3 },
+  ]);
+  const pausedSolutionSlots = useRef(new Set<number>());
+  const nextSolutionIndex = useRef(4);
+  const solutionSlotCursor = useRef(0);
+  const solutionClearTimers = useRef<Array<number | undefined>>([]);
 
   useEffect(() => {
     const pillarTimer = window.setInterval(() => {
@@ -74,6 +113,87 @@ export default function Home() {
 
     return () => window.clearInterval(pillarTimer);
   }, []);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    const rotateSolution = () => {
+      let targetSlot = solutionSlotCursor.current;
+      let attempts = 0;
+
+      while (attempts < 4 && pausedSolutionSlots.current.has(targetSlot)) {
+        targetSlot = (targetSlot + 1) % 4;
+        attempts += 1;
+      }
+
+      solutionSlotCursor.current = (targetSlot + 1) % 4;
+
+      if (attempts >= 4) {
+        return;
+      }
+
+      const nextCard = nextSolutionIndex.current;
+      nextSolutionIndex.current = (nextSolutionIndex.current + 1) % solutionCards.length;
+
+      if (solutionClearTimers.current[targetSlot]) {
+        window.clearTimeout(solutionClearTimers.current[targetSlot]);
+      }
+
+      setSolutionSlots((currentSlots) => {
+        const updatedSlots = [...currentSlots];
+        updatedSlots[targetSlot] = {
+          current: nextCard,
+          previous: currentSlots[targetSlot].current,
+        };
+        return updatedSlots;
+      });
+
+      solutionClearTimers.current[targetSlot] = window.setTimeout(() => {
+        setSolutionSlots((currentSlots) => {
+          const updatedSlots = [...currentSlots];
+          updatedSlots[targetSlot] = { current: currentSlots[targetSlot].current };
+          return updatedSlots;
+        });
+      }, 650);
+    };
+
+    const solutionTimer = window.setInterval(rotateSolution, 2100);
+
+    return () => {
+      window.clearInterval(solutionTimer);
+      solutionClearTimers.current.forEach((timer) => {
+        if (timer) {
+          window.clearTimeout(timer);
+        }
+      });
+    };
+  }, []);
+
+  const renderSolutionContent = (solutionIndex: number) => {
+    const service = solutionCards[solutionIndex];
+    const Icon = service.icon;
+
+    return (
+      <>
+        <div>
+          <div className="mb-8 flex items-center justify-between">
+            <Icon className="solution-card-icon size-7 text-brand-blue transition group-hover:text-brand-orange" />
+            <span className="font-display text-xs font-black uppercase tracking-[0.2em] text-black/35">
+              {service.number}
+            </span>
+          </div>
+          <h3 className="font-display text-2xl font-black uppercase leading-[0.95] tracking-[-0.02em] lg:text-3xl">
+            {service.title}
+          </h3>
+        </div>
+        <p className="text-[0.95rem] font-medium leading-7 text-black/62">{service.copy}</p>
+      </>
+    );
+  };
 
   return (
     <main className="min-h-screen bg-white text-black">
@@ -87,12 +207,12 @@ export default function Home() {
       <SiteHeader />
 
       <section id="home" className="px-4 pb-10 pt-12 sm:px-6 md:pt-16 lg:px-10">
-        <div className="mx-auto max-w-[1520px]">
-          <div className="max-w-[1000px]">
+        <div className="max-w-[1520px]">
+          <div className="max-w-[1520px]">
             <h1 data-reveal className="font-display text-[clamp(2.4rem,8.5vw,3.4rem)] font-black leading-[1.06] tracking-[-0.03em] md:text-[clamp(3rem,4.8vw,5.2rem)]">
               We put every piece of your brand&apos;s digital and physical presence together.
             </h1>
-            <p data-reveal data-reveal-delay="0.15" className="mt-6 max-w-[820px] text-[clamp(1.02rem,1.3vw,1.3rem)] font-medium leading-[1.6] text-black/70">
+            <p data-reveal data-reveal-delay="0.15" className="mt-6 max-w-[1180px] text-[clamp(1.02rem,1.3vw,1.3rem)] font-medium leading-[1.6] text-black/70">
               A premium marketing partner for brands that need strategy, content, media, digital journeys, and on-ground experiences working as one growth system.
             </p>
           </div>
@@ -164,8 +284,7 @@ export default function Home() {
       <section id="work" className="bg-white px-4 pb-6 pt-14 sm:px-6 lg:px-10">
         <div data-reveal className="mx-auto mb-2 grid max-w-[1520px] gap-6 lg:grid-cols-[0.5fr_1fr] lg:items-end">
           <div>
-            <p className="font-display text-sm font-black uppercase tracking-[0.26em] text-brand-blue">Proof network</p>
-            <h2 className="font-display mt-3 max-w-3xl text-[clamp(2.1rem,4vw,4rem)] font-black uppercase leading-[0.92] tracking-[-0.03em]">
+            <h2 className="font-display max-w-3xl text-[clamp(2.1rem,4vw,4rem)] font-black uppercase leading-[0.92] tracking-[-0.03em]">
               Brands in the orbit.
             </h2>
           </div>
@@ -180,8 +299,7 @@ export default function Home() {
       <section id="about" className="bg-white px-4 py-16 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-[1520px]">
           <div data-reveal className="mb-8">
-            <p className="font-display text-sm font-black uppercase tracking-[0.26em] text-brand-magenta">The Jiggsaw model</p>
-            <div className="mt-3 flex items-center gap-8">
+            <div className="flex items-center gap-8">
               <div className="outline-word font-display text-[clamp(3rem,10.5vw,9rem)] font-black uppercase leading-none text-transparent">
                 Jiggsaw
               </div>
@@ -190,26 +308,61 @@ export default function Home() {
 
           <div data-reveal className="grid min-h-[460px] md:grid-cols-2">
             <div className="flex items-end bg-brand-ink p-8 text-white md:p-10">
-              <div>
-                <p className="font-display text-sm font-black uppercase tracking-[0.26em] text-white/45">Operating idea</p>
-                <h3 className="font-display mt-4 max-w-md text-[clamp(1.9rem,3.2vw,3.4rem)] font-black uppercase leading-[0.92] tracking-[-0.03em]">
-                  Strategy for the screen. Execution for the room.
+              <div className="max-w-xl">
+                <p className="mb-5 font-display text-xs font-black uppercase tracking-[0.24em] text-white/55">
+                  Work / Case Studies
+                </p>
+                <h3 className="font-display max-w-md text-[clamp(1.9rem,3.2vw,3.4rem)] font-black uppercase leading-[0.92] tracking-[-0.03em]">
+                  Selected work in motion.
                 </h3>
+                <p className="mt-5 max-w-md text-[0.98rem] font-semibold leading-7 text-white/62">
+                  Campaigns, activations and digital systems built across screens, stages and real-world brand moments.
+                </p>
               </div>
             </div>
             <div className="grid md:grid-cols-2">
-              {cultureCards.map((card) => (
-                <article key={card.title} className={`${card.tone} flex min-h-[230px] flex-col justify-between gap-6 p-6 text-white`}>
-                  <span className="font-display text-xs font-black uppercase tracking-[0.22em] opacity-70">
-                    {card.label}
-                  </span>
-                  <h4 className="hyphens-auto break-words font-display text-[clamp(1.4rem,1.9vw,1.9rem)] font-black uppercase leading-[1.02] tracking-[-0.02em]">
-                    {card.title}
-                  </h4>
-                  <span className="grid size-9 place-items-center rounded-full bg-white text-black">
-                    <ArrowRight className="size-4" />
-                  </span>
-                </article>
+              {caseStudies.map((card) => (
+                <Link
+                  key={card.slug}
+                  href={`/work/${card.slug}`}
+                  aria-label={`View case study: ${card.title}`}
+                  className="portfolio-card group relative min-h-[260px] overflow-hidden bg-brand-ink text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-yellow"
+                  style={
+                    {
+                      "--portfolio-overlay": card.overlay,
+                      "--portfolio-highlight": card.highlight,
+                    } as CSSProperties
+                  }
+                  onMouseMove={(event) => {
+                    const rect = event.currentTarget.getBoundingClientRect();
+                    event.currentTarget.style.setProperty("--x", `${event.clientX - rect.left}px`);
+                    event.currentTarget.style.setProperty("--y", `${event.clientY - rect.top}px`);
+                  }}
+                >
+                  <Image
+                    src={card.coverImage}
+                    alt={`${card.title} cover image`}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                    className="portfolio-card-image object-cover"
+                    loading="lazy"
+                  />
+                  <div className="portfolio-card-shade" aria-hidden="true" />
+                  <div className="portfolio-card-content">
+                    <p className="font-display text-xs font-black uppercase tracking-[0.22em] text-white/70">
+                      {card.category}
+                    </p>
+                    <h4 className="mt-4 max-w-[20rem] font-display text-[clamp(1.35rem,2vw,2rem)] font-black uppercase leading-[0.98] tracking-[-0.02em]">
+                      {card.title}
+                    </h4>
+                    <p className="mt-4 max-w-[21rem] text-[0.9rem] font-semibold leading-6 text-white/76">
+                      {card.cardDescription}
+                    </p>
+                    <span className="mt-7 grid size-10 place-items-center rounded-full bg-white text-black transition group-hover:translate-x-1 group-focus-visible:translate-x-1">
+                      <ArrowRight className="size-4" />
+                    </span>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -219,36 +372,34 @@ export default function Home() {
       <section id="services" className="bg-white px-4 py-16 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-[1520px]">
           <div data-reveal className="mb-10 max-w-4xl">
-            <p className="font-display text-sm font-black uppercase tracking-[0.26em] text-brand-orange">Solutions</p>
-            <h2 className="font-display mt-3 text-[clamp(2.1rem,4vw,4rem)] font-black uppercase leading-[0.92] tracking-[-0.03em]">
+            <h2 className="font-display text-[clamp(2.1rem,4vw,4rem)] font-black uppercase leading-[0.92] tracking-[-0.03em]">
               One system across digital demand and physical recall.
             </h2>
           </div>
           <div className="grid border-l border-t border-black/10 md:grid-cols-4">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <article
-                  key={service.title}
-                  data-reveal
-                  data-reveal-delay={`${index * 0.06}`}
-                  className="group flex min-h-[340px] flex-col justify-between gap-8 border-b border-r border-black/10 p-6 transition hover:bg-black hover:text-white"
-                >
-                  <div>
-                    <div className="mb-8 flex items-center justify-between">
-                      <Icon className="size-7 text-brand-blue group-hover:text-brand-yellow" />
-                      <span className="font-display text-xs font-black uppercase tracking-[0.2em] text-black/35 group-hover:text-white/50">
-                        0{index + 1}
-                      </span>
-                    </div>
-                    <h3 className="font-display text-2xl font-black uppercase leading-[0.95] tracking-[-0.02em] lg:text-3xl">
-                      {service.title}
-                    </h3>
+            {solutionSlots.map((slot, index) => (
+              <article
+                key={index}
+                data-reveal
+                data-reveal-delay={`${index * 0.06}`}
+                className={`solution-card group relative min-h-[340px] overflow-hidden border-b border-r border-black/10 bg-white transition hover:border-brand-orange/35 hover:bg-brand-paper/45 ${typeof slot.previous === "number" ? "is-swapping" : ""}`}
+                onMouseEnter={() => pausedSolutionSlots.current.add(index)}
+                onMouseLeave={() => pausedSolutionSlots.current.delete(index)}
+                onFocus={() => pausedSolutionSlots.current.add(index)}
+                onBlur={() => pausedSolutionSlots.current.delete(index)}
+                tabIndex={0}
+                aria-label={`${solutionCards[slot.current].number} ${solutionCards[slot.current].title}`}
+              >
+                {typeof slot.previous === "number" ? (
+                  <div className="solution-card-layer solution-card-previous" aria-hidden="true">
+                    {renderSolutionContent(slot.previous)}
                   </div>
-                  <p className="text-[0.95rem] font-medium leading-7 text-black/62 group-hover:text-white/68">{service.copy}</p>
-                </article>
-              );
-            })}
+                ) : null}
+                <div className="solution-card-layer solution-card-current">
+                  {renderSolutionContent(slot.current)}
+                </div>
+              </article>
+            ))}
           </div>
           <div className="mt-8 flex justify-end">
             <Link
@@ -265,8 +416,7 @@ export default function Home() {
       <section id="scope" className="grid border-y border-black bg-black text-white lg:grid-cols-[0.9fr_1.1fr]">
         <div className="flex min-h-[360px] flex-col justify-between gap-10 border-b border-white/20 p-6 sm:p-8 lg:border-b-0 lg:border-r">
           <div data-reveal>
-            <p className="font-display text-sm font-black uppercase tracking-[0.26em] text-brand-yellow">Scope association</p>
-            <h2 className="break-words font-display mt-4 text-[clamp(1.9rem,3.4vw,3.6rem)] font-black uppercase leading-[0.94] tracking-[-0.03em]">
+            <h2 className="break-words font-display text-[clamp(1.9rem,3.4vw,3.6rem)] font-black uppercase leading-[0.94] tracking-[-0.03em]">
               Built with entertainment and activation DNA.
             </h2>
             <p className="mt-6 max-w-2xl text-lg font-semibold leading-8 text-white/68">

@@ -25,7 +25,7 @@ export default async function ServiceDetailPage({
     <main className="min-h-screen bg-white text-black">
       <GsapReveals />
       <SiteHeader />
-      <PageHero eyebrow={`${service.number} / ${service.eyebrow}`} title={service.title} copy={service.intro} />
+      <PageHero title={service.title} copy={service.intro} />
       <section className="px-4 py-12 sm:px-6 sm:py-14 lg:px-10">
         <div className="mx-auto grid max-w-[1520px] gap-6 lg:grid-cols-[0.36fr_1fr]">
           <aside className="rounded-md bg-brand-ink p-6 text-white lg:sticky lg:top-28 lg:self-start">

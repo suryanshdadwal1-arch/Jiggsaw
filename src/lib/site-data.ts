@@ -1,8 +1,8 @@
 export const navItems = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
+  { label: "Work", href: "/work" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
 ];
@@ -189,14 +189,14 @@ export const serviceModules = [
     eyebrow: "Physical",
     title: "Experiences & Activation",
     short:
-      "Launches, events, venue moments and on-ground activations connected back to digital growth.",
+      "Events, hoardings, posters, influencer pushes and on-ground brand moments connected back to digital growth.",
     intro:
-      "Built on entertainment and activation lineage: moments people attend, remember and post — with a digital system that keeps the momentum.",
+      "We build the offline layer people see, attend and share: outdoor visibility, venue branding, event ideas, influencer marketing and brand ambassador moments.",
     deliverables: [
-      "Activation and event concepts",
-      "Venue and launch planning",
-      "Event-to-content pipelines",
-      "Post-event digital follow-up",
+      "Poster and hoarding creative",
+      "Event and venue activation plans",
+      "Influencer and ambassador briefs",
+      "Event-to-content follow-up",
     ],
     outcomes: ["Memorable moments", "Digital continuity", "Momentum after the event"],
   },
@@ -206,41 +206,52 @@ export const workSystems = [
   {
     title: "Launch Momentum System",
     label: "Strategy + Media + Activation",
+    image: "/work/brand-momentum.png",
+    imageAlt: "Brand Momentum visual",
     copy:
-      "A coordinated path for openings, drops and debuts: positioning, teaser content, paid media and a launch moment people actually show up for.",
+      "Launch systems that build early attention, brand presence and a clear first impression across digital and on-ground touchpoints.",
   },
   {
     title: "Venue & Footfall Engine",
     label: "Local + Social + Events",
+    image: "/work/local-footfall.png",
+    imageAlt: "Local Footfall visual",
     copy:
-      "A rhythm for venues and lifestyle spaces where social presence, local search and on-ground programming keep footfall building.",
+      "A visibility system for venues and physical spaces where branding, movement and local presence work together.",
   },
   {
     title: "Creator & Content Loop",
     label: "Creators + Production",
+    image: "/work/bts-to-output.png",
+    imageAlt: "BTS to Output visual",
     copy:
-      "A repeatable loop of creator collaborations, original formats and production that keeps the brand in culture without losing its voice.",
+      "A production workflow that turns shoots, edits and final outputs into repeatable content for campaigns and brand recall.",
   },
   {
     title: "Search & AI Discovery Roadmap",
     label: "SEO + AI Readiness",
+    image: "/work/search-discovery.png",
+    imageAlt: "Search Discovery visual",
     copy:
-      "A discoverability system that organizes facts, pages and proof around how people — and answer engines — actually search.",
+      "A discoverability system that organizes content, structure and proof so brands are easier to find across search and answer engines.",
   },
   {
     title: "Launch-to-Enquiry Campaign",
     label: "Media + Funnel",
+    image: "/work/ad-to-enquiry.png",
+    imageAlt: "Ad to Enquiry visual",
     copy:
-      "A campaign path that moves attention from paid media and social into landing pages, retargeting and captured demand.",
+      "A conversion path that moves attention from ads into landing pages, forms and real business enquiries.",
   },
   {
     title: "Event-to-Everywhere System",
     label: "Activation + Content",
+    image: "/work/event-system.png",
+    imageAlt: "Event System visual",
     copy:
-      "One event, a month of presence: coverage, cutdowns, recaps and retargeting that stretch every on-ground moment.",
+      "One event turned into ongoing brand presence through live coverage, recap assets and post-event content distribution.",
   },
 ];
-
 export const resourceCards = [
   "How one launch can feed a month of content",
   "What AI-led discovery means for brand visibility",
@@ -249,3 +260,4 @@ export const resourceCards = [
   "What every landing page should answer before enquiry",
   "How to plan social content without chasing every trend",
 ];
+

@@ -43,7 +43,7 @@ export function SiteHeader() {
       <div className="mx-auto flex min-h-20 max-w-[1520px] items-center justify-between gap-5 px-4 sm:px-6 lg:px-10">
         <Link href="/" className="flex w-32 items-center sm:w-40">
           <Image
-            src="/jiggsaw-logo-2026.png"
+            src="/jiggsaw-logo-final.png"
             alt="Jiggsaw"
             width={900}
             height={260}

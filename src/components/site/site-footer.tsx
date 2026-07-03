@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="border-t border-black/10 bg-brand-paper px-4 py-10 sm:px-6 lg:px-10">
       <div className="mx-auto flex max-w-[1520px] flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <Image src="/jiggsaw-logo-2026.png" alt="Jiggsaw" width={900} height={260} className="h-auto w-36 object-contain" />
+          <Image src="/jiggsaw-logo-final.png" alt="Jiggsaw" width={900} height={260} className="h-auto w-36 object-contain" />
           <p className="mt-3 max-w-sm text-sm font-semibold leading-6 text-black/58">
             Digital setup to physical activation, built to work as one practical marketing system.
           </p>
