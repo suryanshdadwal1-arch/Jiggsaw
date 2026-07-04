@@ -162,10 +162,11 @@ export default function Home() {
     };
 
     const solutionTimer = window.setInterval(rotateSolution, 2100);
+    const clearTimers = solutionClearTimers.current;
 
     return () => {
       window.clearInterval(solutionTimer);
-      solutionClearTimers.current.forEach((timer) => {
+      clearTimers.forEach((timer) => {
         if (timer) {
           window.clearTimeout(timer);
         }
