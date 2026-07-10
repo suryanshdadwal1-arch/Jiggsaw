@@ -79,15 +79,15 @@ export function ServiceGrid({ limit }: { limit?: number }) {
           >
             <div>
               <div className="flex items-start gap-4">
-                <span className="font-display text-xs font-black uppercase tracking-[0.2em] text-black/35 group-hover:text-white/50 group-focus-visible:text-white/50">{service.number}</span>
+                <span className="creative-card-number font-display text-xs font-black uppercase tracking-[0.2em] text-black/35 group-hover:text-white/50 group-focus-visible:text-white/50">{service.number}</span>
               </div>
               <h3 className="mt-6 [overflow-wrap:anywhere] font-display text-2xl font-black uppercase leading-[0.98] tracking-[-0.02em] sm:text-3xl">{service.title}</h3>
             </div>
             <div className="space-y-5">
-              <p className="max-w-md text-[0.95rem] font-medium leading-7 text-black/62 group-hover:text-white/70 group-focus-visible:text-white/70">{service.short}</p>
+              <p className="creative-card-copy max-w-md text-[0.95rem] font-medium leading-7 text-black/62 group-hover:text-white/70 group-focus-visible:text-white/70">{service.short}</p>
               <div className="service-role-reveal border-t border-black/10 pt-4 transition group-hover:border-white/16 group-focus-visible:border-white/16">
-                <p className="font-display text-[0.68rem] font-black uppercase tracking-[0.18em] text-brand-orange group-hover:text-brand-yellow group-focus-visible:text-brand-yellow">Role</p>
-                <p className="mt-2 line-clamp-2 text-sm font-semibold leading-6 text-black/52 group-hover:text-white/62 group-focus-visible:text-white/62">{service.intro}</p>
+                <p className="creative-card-role-label font-display text-[0.68rem] font-black uppercase tracking-[0.18em] text-brand-orange group-hover:text-brand-yellow group-focus-visible:text-brand-yellow">Role</p>
+                <p className="creative-card-role-copy mt-2 text-sm font-semibold leading-6 text-black/52 group-hover:text-white/62 group-focus-visible:text-white/62">{service.intro}</p>
               </div>
             </div>
           </article>

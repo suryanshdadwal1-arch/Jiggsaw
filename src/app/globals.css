@@ -974,9 +974,36 @@
 }
 
 .creative-card:hover,
+.creative-card:focus,
 .creative-card:focus-visible {
   background-color: var(--brand-ink) !important;
   color: #fff !important;
+}
+
+/* Touch devices never match Tailwind's hover/group-hover variants, so the
+   card's inner text colors are driven here off the same state selectors. */
+.creative-card:is(:hover, :focus, :focus-visible) h3 {
+  color: #fff;
+}
+
+.creative-card:is(:hover, :focus, :focus-visible) .creative-card-number {
+  color: rgb(255 255 255 / 0.5);
+}
+
+.creative-card:is(:hover, :focus, :focus-visible) .creative-card-copy {
+  color: rgb(255 255 255 / 0.7);
+}
+
+.creative-card:is(:hover, :focus, :focus-visible) .service-role-reveal {
+  border-color: rgb(255 255 255 / 0.16);
+}
+
+.creative-card:is(:hover, :focus, :focus-visible) .creative-card-role-label {
+  color: var(--brand-yellow);
+}
+
+.creative-card:is(:hover, :focus, :focus-visible) .creative-card-role-copy {
+  color: rgb(255 255 255 / 0.62);
 }
 
 .service-power-line {
@@ -1112,8 +1139,9 @@
 }
 
 .creative-card:hover .service-role-reveal,
+.creative-card:focus .service-role-reveal,
 .creative-card:focus-visible .service-role-reveal {
-  max-height: 7rem;
+  max-height: 16rem;
   opacity: 1;
   transform: translateY(0);
 }
@@ -1195,8 +1223,9 @@
   z-index: 3;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: clamp(1rem, 1.8vw, 1.4rem);
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(1.25rem, 2.1vw, 2rem);
   opacity: 0;
   transform: translateY(0.85rem);
   transition:
@@ -1206,18 +1235,16 @@
 
 .portfolio-card-content h4 {
   margin-top: 0.75rem;
-  min-height: 3em;
 }
 
 .portfolio-card-content p:last-of-type {
   margin-top: 0.75rem;
-  min-height: 2.5rem;
 }
 
 .portfolio-card-content > span:last-child {
-  margin-top: auto;
-  width: 2.25rem;
-  height: 2.25rem;
+  margin-top: 1.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
 }
 
 .portfolio-card:hover::before,
@@ -1501,12 +1528,29 @@
 }
 
 @media (hover: none) {
-  .portfolio-card::before {
-    clip-path: circle(165% at 16% 84%);
+  /* Touch devices have no hover reveal. The square cover artwork already
+     carries the card text, so it is shown full and uncropped with the
+     HTML overlay text, tint and shade removed. The image is switched from
+     the absolute cover-fill to normal flow at its natural ratio, so the
+     card wraps the artwork exactly and nothing can be cropped. */
+  .portfolio-card {
+    min-height: 0;
   }
 
-  .portfolio-card-content {
-    opacity: 1;
+  .portfolio-card::before,
+  .portfolio-card .portfolio-card-shade,
+  .portfolio-card .portfolio-card-content {
+    display: none;
+  }
+
+  .portfolio-card .portfolio-card-image {
+    position: static !important;
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: var(--cover-ratio, 1 / 1);
+    object-fit: contain;
+    object-position: center;
     transform: none;
   }
 }
@@ -1671,11 +1715,22 @@
 
 @media (max-width: 640px) {
   .logo-tile {
-    height: 82px;
-    width: 168px;
+    height: 60px;
+    width: 124px;
+    padding: 0.5rem 0.65rem;
+    border-radius: 6px;
+    box-shadow: 0 5px 14px rgb(0 0 0 / 0.06);
+  }
+
+  /* Let logos fill the smaller tile instead of the fixed desktop cap,
+     so the tiles don't show large empty white areas around the mark. */
+  .logo-tile img {
+    max-height: 100%;
+    max-width: 100%;
   }
 
   .logo-marquee-track {
+    gap: 0.7rem;
     animation-duration: 34s;
   }
 }

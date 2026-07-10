@@ -114,6 +114,59 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         </div>
       </section>
 
+      {caseStudy.highlights?.length ? (
+        <section className="px-4 pb-16 sm:px-6 sm:pb-20 lg:px-10">
+          <div className="mx-auto max-w-[1680px]">
+            <h2 data-reveal className="font-display max-w-3xl text-[clamp(1.8rem,3vw,3rem)] font-black uppercase leading-[0.94] tracking-[-0.03em]">
+              How the system worked.
+            </h2>
+            <div className="mt-8 grid border-l border-t border-black/10 md:grid-cols-2 xl:grid-cols-4">
+              {caseStudy.highlights.map((highlight, index) => (
+                <article key={highlight.title} data-reveal className="border-b border-r border-black/10 bg-white p-6">
+                  <p className="font-display text-xs font-black uppercase tracking-[0.2em] text-black/35">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="mt-4 font-display text-xl font-black uppercase leading-[0.98] tracking-[-0.02em]">
+                    {highlight.title}
+                  </h3>
+                  <p className="mt-3 text-[0.95rem] font-medium leading-7 text-black/62">{highlight.copy}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {caseStudy.collaborations?.length ? (
+        <section className="px-4 pb-16 sm:px-6 sm:pb-20 lg:px-10">
+          <div className="mx-auto max-w-[1680px] border-t border-black/10 pt-8">
+            <p data-reveal className="font-display text-xs font-black uppercase tracking-[0.22em] text-brand-orange">
+              Featured Collaborations
+            </p>
+            <ul data-reveal className="mt-5 flex flex-wrap gap-3">
+              {caseStudy.collaborations.map((partner) => (
+                <li
+                  key={partner}
+                  className="rounded-full border border-black/12 px-4 py-2 text-sm font-bold uppercase tracking-[0.04em] text-black/70"
+                >
+                  {partner}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+
+      {caseStudy.closingLine ? (
+        <section className="border-t border-black bg-black px-4 py-12 text-white sm:px-6 sm:py-14 lg:px-10">
+          <div className="mx-auto max-w-[1680px]">
+            <p data-reveal className="w-full max-w-[1500px] font-display text-[clamp(1.28rem,2.05vw,2.25rem)] font-black uppercase leading-[1.08] tracking-[-0.02em]">
+              {caseStudy.closingLine}
+            </p>
+          </div>
+        </section>
+      ) : null}
+
       <SiteFooter />
     </main>
   );

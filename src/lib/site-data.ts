@@ -140,7 +140,7 @@ export const serviceModules = [
     short:
       "Shoots, reels, films and campaign assets produced with entertainment-grade craft.",
     intro:
-      "Production planned backwards from where the work will live: feeds, screens, stages and venues.",
+      "Shoots, motion graphics and video editing planned backwards from where the work will live: feeds, screens and stages.",
     deliverables: [
       "Shoot and asset planning",
       "Reels, films and explainers",

@@ -1,10 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Animates every element marked with `data-reveal` on the current page.
@@ -12,9 +8,29 @@ gsap.registerPlugin(ScrollTrigger);
  */
 export function GsapReveals() {
   useEffect(() => {
-    const mm = gsap.matchMedia();
+    let cancelled = false;
+    let cleanup: (() => void) | undefined;
+    let idleId: number | ReturnType<typeof globalThis.setTimeout> | undefined;
+    let usedIdleCallback = false;
 
-    mm.add("(prefers-reduced-motion: no-preference)", () => {
+    const startReveals = async () => {
+      if (cancelled || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return;
+      }
+
+      const [{ gsap }, { ScrollTrigger }] = await Promise.all([
+        import("gsap"),
+        import("gsap/ScrollTrigger"),
+      ]);
+
+      if (cancelled) {
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+      const mm = gsap.matchMedia();
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
       const elements = gsap.utils.toArray<HTMLElement>("[data-reveal]");
       const aboveFoldCutoff = window.innerHeight * 0.9;
 
@@ -66,7 +82,35 @@ export function GsapReveals() {
       }, 4500);
     });
 
-    return () => mm.revert();
+      cleanup = () => mm.revert();
+    };
+
+    const scheduleIdle = window.requestIdleCallback?.bind(window);
+
+    if (scheduleIdle) {
+      usedIdleCallback = true;
+      idleId = scheduleIdle(() => {
+        void startReveals();
+      }, { timeout: 900 });
+    } else {
+      idleId = globalThis.setTimeout(() => {
+        void startReveals();
+      }, 250);
+    }
+
+    return () => {
+      cancelled = true;
+
+      if (idleId !== undefined) {
+        if (usedIdleCallback && window.cancelIdleCallback) {
+          window.cancelIdleCallback(idleId as number);
+        } else {
+          globalThis.clearTimeout(idleId);
+        }
+      }
+
+      cleanup?.();
+    };
   }, []);
 
   return null;

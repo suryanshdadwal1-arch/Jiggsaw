@@ -322,7 +322,7 @@ export default function Home() {
               </div>
             </div>
             <div className="grid md:grid-cols-2">
-              {caseStudies.map((card) => (
+              {caseStudies.slice(0, 4).map((card) => (
                 <Link
                   key={card.slug}
                   href={`/work/${card.slug}`}
