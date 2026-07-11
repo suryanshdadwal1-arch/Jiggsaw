@@ -53,7 +53,7 @@ export default function ResourcesPage() {
       <section className="px-4 py-12 sm:px-6 sm:py-14 lg:px-10">
         <div className="mx-auto grid max-w-[1520px] gap-4 md:grid-cols-2 xl:grid-cols-3">
           {resourceArticles.map((article, index) => (
-            <Link key={article.slug} href={`/resources/${article.slug}`} data-reveal className="group block rounded-md border border-black/10 bg-white p-6 transition hover:bg-black hover:text-white">
+            <Link key={article.slug} href={`/resources/${article.slug}`} data-reveal className="group flex min-h-[35rem] flex-col rounded-md border border-black/10 bg-white p-6 transition hover:bg-black hover:text-white sm:min-h-[37rem]">
               <div className="resource-card-media media-slot mb-6 group-hover:border-white/20 group-hover:bg-white/10">
                 <Image
                   src={resourceImages[index].src}
@@ -63,10 +63,12 @@ export default function ResourcesPage() {
                   className={`resource-card-image ${resourceImages[index].className}`}
                 />
               </div>
-              <p className="font-display text-xs font-black uppercase tracking-[0.2em] text-brand-orange group-hover:text-brand-orange">{article.category}</p>
-              <h2 className="mt-3 [overflow-wrap:anywhere] font-display text-2xl font-black uppercase leading-[0.98] tracking-[-0.02em] sm:text-3xl">{article.title}</h2>
-              <p className="mt-4 text-[0.95rem] font-medium leading-7 text-black/62 group-hover:text-white/68">{article.description}</p>
-              <p className="mt-6 font-display text-xs font-black uppercase tracking-[0.18em]">Read article</p>
+              <div className="flex flex-1 flex-col">
+                <p className="font-display text-xs font-black uppercase tracking-[0.2em] text-brand-orange group-hover:text-brand-orange">{article.category}</p>
+                <h2 className="mt-3 min-h-[5.9rem] [overflow-wrap:anywhere] font-display text-2xl font-black uppercase leading-[0.98] tracking-[-0.02em] sm:text-3xl">{article.title}</h2>
+                <p className="mt-4 min-h-[5.25rem] text-[0.95rem] font-medium leading-7 text-black/62 group-hover:text-white/68">{article.description}</p>
+                <p className="mt-auto pt-8 font-display text-xs font-black uppercase tracking-[0.18em]">Read article</p>
+              </div>
             </Link>
           ))}
         </div>
