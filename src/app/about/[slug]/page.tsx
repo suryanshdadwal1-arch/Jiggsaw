@@ -29,7 +29,7 @@ export default async function AboutArticlePage({ params }: AboutArticlePageProps
       <article>
         <header className="border-b border-black/10 px-4 py-12 sm:px-6 sm:py-16 lg:px-10">
           <div className="mx-auto max-w-[1280px]">
-            <Link href="/about" className="font-display text-xs font-black uppercase tracking-[0.2em] text-brand-orange hover:text-black">About Jiggsaw</Link>
+            <Link href="/about" className="inline-flex min-h-11 items-center font-display text-xs font-black uppercase tracking-[0.2em] text-brand-orange hover:text-black">About Jiggsaw</Link>
             <p data-reveal className="mt-8 font-display text-sm font-black uppercase tracking-[0.26em] text-brand-orange">{article.category}</p>
             <h1 data-reveal data-reveal-delay="0.08" className="mt-4 max-w-5xl font-display text-[clamp(2.45rem,5.4vw,6rem)] font-black uppercase leading-[0.92] tracking-[-0.04em]">{article.title}</h1>
             <p data-reveal data-reveal-delay="0.16" className="mt-6 max-w-3xl text-[clamp(1.05rem,1.35vw,1.32rem)] font-semibold leading-8 text-black/65">{article.description}</p>
@@ -72,7 +72,7 @@ export default async function AboutArticlePage({ params }: AboutArticlePageProps
       <section className="bg-black px-4 py-12 text-white sm:px-6 sm:py-14 lg:px-10">
         <div className="mx-auto flex max-w-[1280px] flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <h2 className="max-w-2xl font-display text-3xl font-black uppercase leading-[0.96] tracking-[-0.025em] sm:text-4xl">Bring the pieces into one working system.</h2>
-          <Link href="/contact" className="shrink-0 border border-white px-5 py-3 font-display text-xs font-black uppercase tracking-[0.18em] transition hover:bg-white hover:text-black">Talk to Jiggsaw</Link>
+          <Link href="/contact" className="inline-flex min-h-11 shrink-0 items-center justify-center border border-white px-5 font-display text-xs font-black uppercase tracking-[0.18em] transition hover:bg-white hover:text-black">Talk to Jiggsaw</Link>
         </div>
       </section>
       <SiteFooter />

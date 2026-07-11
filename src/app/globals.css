@@ -1561,10 +1561,10 @@
 }
 
 .form-field span {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 900;
   text-transform: uppercase;
-  color: rgb(0 0 0 / 0.5);
+  color: rgb(0 0 0 / 0.68);
 }
 
 .form-field input,

@@ -108,7 +108,7 @@ export function SiteHeader() {
               <h2 id="mobile-navigation-title" className="text-xs font-black uppercase tracking-[0.26em] text-black/45">
                 Menu
               </h2>
-              <button className="inline-flex size-9 items-center justify-center rounded-md hover:bg-black/5" aria-label="Close navigation" onClick={closeMenu}>
+              <button className="inline-flex size-11 items-center justify-center rounded-md hover:bg-black/5" aria-label="Close navigation" onClick={closeMenu}>
                 <X className="size-5" />
               </button>
             </div>

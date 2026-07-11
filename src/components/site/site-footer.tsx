@@ -12,9 +12,9 @@ export function SiteFooter() {
             Digital setup to physical activation, built to work as one practical marketing system.
           </p>
         </div>
-        <nav className="flex flex-wrap gap-x-5 gap-y-2">
+        <nav className="flex flex-wrap gap-x-3 gap-y-1">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="text-xs font-extrabold uppercase text-black/70 hover:text-black">
+            <Link key={item.href} href={item.href} className="inline-flex min-h-11 items-center px-2 text-xs font-extrabold uppercase text-black/70 hover:text-black">
               {item.label}
             </Link>
           ))}

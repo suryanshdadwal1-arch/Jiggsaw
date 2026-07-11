@@ -7,7 +7,7 @@ export function JiggsawPreloader() {
 
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const timeout = window.setTimeout(() => setIsVisible(false), reducedMotion ? 900 : 3800);
+    const timeout = window.setTimeout(() => setIsVisible(false), reducedMotion ? 0 : 1800);
 
     return () => window.clearTimeout(timeout);
   }, []);

@@ -51,7 +51,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           <p data-reveal className="mb-4 font-display text-sm font-black uppercase tracking-[0.26em] text-brand-orange">
             Case Study
           </p>
-          <h1 data-reveal className="case-study-hero-title max-w-[1600px] font-display text-[clamp(2.45rem,6.1vw,6.75rem)] font-black uppercase leading-[0.92] tracking-[-0.04em] [text-wrap:balance]">
+          <h1 data-reveal className="case-study-hero-title max-w-[1600px] font-display text-[clamp(2.45rem,5.6vw,6rem)] font-black uppercase leading-[0.92] tracking-[-0.04em] [text-wrap:balance]">
             {caseStudy.title}
           </h1>
           <p data-reveal data-reveal-delay="0.12" className="case-study-hero-subtitle mt-6 max-w-[1320px] text-[clamp(1.05rem,1.3vw,1.3rem)] font-semibold leading-[1.55] text-black/65 [text-wrap:balance]">
