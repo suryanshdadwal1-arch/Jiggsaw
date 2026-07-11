@@ -2,6 +2,11 @@
 
 This file documents the current live design direction for the `design-audit-redesign` branch. Use it as the reference before making any visual or layout changes.
 
+## Historical Source
+
+This direction builds on the recovered first-draft design from commit `23611c7`.
+Keep its bold, high-contrast, kinetic character intact while using this document as the current source of truth for the live site.
+
 ## Brand Feel
 
 Jiggsaw should feel like a sharp, premium, proof-led marketing systems studio. The website is bold, direct and high-contrast, with strong typography and controlled motion.
