@@ -3,7 +3,7 @@ name: Deploy to Vercel
 on:
   push:
     branches:
-      - codex/final-jiggsaw-site-assets
+      - main
   workflow_dispatch:
 
 concurrency:
